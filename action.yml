@@ -1,3 +1,4 @@
+#
 name: 'Spellcheck'
 description: 'This action runs a spellcheck on the specified files'
 inputs:
