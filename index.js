@@ -8,7 +8,6 @@ const token = process.env.GITHUB_TOKEN;
 
 // Create an authenticated Octokit client
 const octokit = github.getOctokit(token);
-console.log('===================>Octokit object:', octokit);
 
 // Read the spellcheck-results.txt file
 // This file contains the output of the cspell command
@@ -23,8 +22,6 @@ if (misspelledWords === null) {
   misspelledWords = [];
 }
 
-console.log("===================>data: ", data);
-console.log("===================>misspelledWords: ", misspelledWords);
 // Format the misspelled words as a comment body
 // Each misspelled word is on a new line
 const commentBody = `The following words are misspelled:\n\n${misspelledWords.join('\n')}`;

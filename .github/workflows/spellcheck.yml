@@ -29,9 +29,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t my-cspell-image .
 
-      - name: Print GITHUB_TOKEN
-        run: echo ${{ secrets.GITHUB_TOKEN }}
-
       # This step runs the Docker container
       # The GitHub workspace is mounted as a volume in the container
       - name: Run Docker container
