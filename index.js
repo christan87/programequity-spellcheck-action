@@ -28,7 +28,17 @@ const commentBody = `The following words are misspelled:\n\n${misspelledWords.jo
 
 // Post the comment to the pull request
 
-const context = github.context;
+//const context = github.context;
+const context = {
+    eventName: process.env.GITHUB_EVENT_NAME,
+    sha: process.env.GITHUB_SHA,
+    ref: process.env.GITHUB_REF,
+    repo: {
+        owner: process.env.GITHUB_REPOSITORY.split('/')[0],
+        repo: process.env.GITHUB_REPOSITORY.split('/')[1],
+    },
+    actor: process.env.GITHUB_ACTOR,
+};
 console.log("====================> context: ", context);
 
 // The createComment function is called in an asynchronous self-invoking function
@@ -36,7 +46,7 @@ console.log("====================> context: ", context);
 (async () => {
     await octokit.rest.issues.createComment({
         ...context.repo,
-        issue_number: context.issue.number,
+        issue_number: process.env.GITHUB_ISSUE_NUMBER,
         body: commentBody,
     });
 })();
