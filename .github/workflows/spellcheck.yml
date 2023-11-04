@@ -33,7 +33,7 @@ jobs:
       # This step runs the Docker container
       # The GitHub workspace is mounted as a volume in the container
       - name: Run Docker container
-        run: docker run -v ${{ github.workspace }}:/workdir -w /workdir my-cspell-image cspell "**/*"
+        run: docker run -v ${{ github.workspace }}:/workdir -w /workdir -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} my-cspell-image cspell "**/*"
         continue-on-error: true
 
       - name: List files in working directory

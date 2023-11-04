@@ -1,6 +1,13 @@
 // Import the required modules
 const fs = require('fs');
 const github = require('@actions/github');
+const core = require('@actions/core');
+
+// Get the GITHUB_TOKEN secret
+const token = core.getInput('GITHUB_TOKEN');
+
+// Create an authenticated Octokit client
+const octokit = github.getOctokit(token);
 
 // Read the spellcheck-results.txt file
 // This file contains the output of the cspell command
@@ -22,8 +29,7 @@ console.log("===================>misspelledWords: ", misspelledWords);
 const commentBody = `The following words are misspelled:\n\n${misspelledWords.join('\n')}`;
 
 // Post the comment to the pull request
-// The GitHub token is read from the environment variables
-const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+
 const context = github.context;
 
 // The createComment function is called in an asynchronous self-invoking function
