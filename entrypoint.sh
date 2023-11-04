@@ -2,10 +2,12 @@
 
 # This script is the entrypoint for the Docker container
 
-# Run cspell with any arguments passed to the script
-# The "$@" is a special variable that holds all command-line arguments
+# Create the /workdir directory
+mkdir -p /workdir
+
+# Run cspell on all files in the current directory and its subdirectories
 # The output is redirected to spellcheck-results.txt
-cspell "$@" > spellcheck-results.txt
+cspell . > /workdir/spellcheck-results.txt
 
 # Run the Node.js script named index.js
 node index.js
