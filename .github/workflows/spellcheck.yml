@@ -1,5 +1,4 @@
 # This workflow is named "Spellcheck"
-#
 name: Spellcheck
 
 # This workflow runs on every pull request
@@ -20,7 +19,7 @@ jobs:
         with:
           node-version: '14.x'
       - name: Spellcheck
-        uses: christan87/programequity-spellcheck-action@v1
+        uses: christan87/programequity-spellcheck-action@main
         with:
           path: '.'
       # This step builds the Docker image
