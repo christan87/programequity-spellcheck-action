@@ -5,7 +5,6 @@ const github = require('@actions/github');
 // Read the spellcheck-results.txt file
 // This file contains the output of the cspell command
 const data = fs.readFileSync('spellcheck-results.txt', 'utf8');
-console.log("=================> data: ", data);
 
 // Extract the misspelled words from the file content
 // The regular expression matches any word that follows "Unknown word (suggestion): " and ends before a comma
