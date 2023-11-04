@@ -34,7 +34,7 @@ jobs:
       # This step runs the Docker container
       # The GitHub workspace is mounted as a volume in the container
       - name: Run Docker container
-        run: docker run -v ${{ github.workspace }}:/workdir -w /workdir -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -e GITHUB_EVENT_NAME=${{ github.event_name }} -e GITHUB_SHA=${{ github.sha }} -e GITHUB_REF=${{ github.ref }} -e GITHUB_REPOSITORY=${{ github.repository }} -e GITHUB_ACTOR=${{ github.actor }} -e GITHUB_ISSUE_NUMBER=${{ github.event.issue.number }} my-cspell-image cspell "**/*"
+        run: docker run -v ${{ github.workspace }}:/workdir -w /workdir -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -e GITHUB_EVENT_NAME=${{ github.event_name }} -e GITHUB_SHA=${{ github.sha }} -e GITHUB_REF=${{ github.ref }} -e GITHUB_REPOSITORY=${{ github.repository }} -e GITHUB_ACTOR=${{ github.actor }} -e GITHUB_ISSUE_NUMBER=${{ github.event.pull_request.number }} my-cspell-image cspell "**/*"
         continue-on-error: true
 
       - name: List files in working directory
