@@ -9,6 +9,15 @@ RUN apt-get update
 # cspell is a spell checker for code
 RUN npm install -g cspell
 
+# Copy the entrypoint.sh script into the Docker image
+COPY entrypoint.sh /entrypoint.sh
+
+# Make the entrypoint.sh script executable
+RUN chmod +x /entrypoint.sh
+
+# Set entrypoint.sh as the entrypoint for the Docker container
+ENTRYPOINT ["/entrypoint.sh"]
+
 # Clean up APT cache and remove unnecessary files to reduce image size
 # This is a good practice to keep the Docker image size small
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
