@@ -20,7 +20,7 @@ jobs:
           node-version: '14.x'
       - name: Spellcheck
         uses: christan87/programequity-spellcheck-action@main
-        env:
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # In case of errors, continue to the next step
         continue-on-error: true
@@ -29,7 +29,7 @@ jobs:
       # This step builds the Docker image
       - name: Build Docker image
         run: docker build -t my-cspell-image .
-        
+
       - name: Print GITHUB_TOKEN
         run: echo ${{ secrets.GITHUB_TOKEN }}
 
