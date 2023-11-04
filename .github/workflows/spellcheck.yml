@@ -42,10 +42,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            // Import the required modules
+            // Import the required module
             const fs = require('fs');
-            const context = github.context;
-            const octokit = github.getOctokit(core.getInput('token'));
 
             // Read the spellcheck results
             const results = fs.readFileSync('spellcheck-results.txt', 'utf8');
@@ -64,9 +62,9 @@ jobs:
             ${misspelledWords.join('\n')}`;
 
             // Post the comment to the pull request
-            await octokit.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
+            await github.issues.createComment({
+              owner: github.context.repo.owner,
+              repo: github.context.repo.repo,
+              issue_number: github.context.issue.number,
               body
             });
