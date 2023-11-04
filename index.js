@@ -3,8 +3,8 @@ const fs = require('fs');
 const github = require('@actions/github');
 const core = require('@actions/core');
 
-// Get the GITHUB_TOKEN secret
-const token = core.getInput('GITHUB_TOKEN');
+// Get the GITHUB_TOKEN environment variable
+const token = process.env.GITHUB_TOKEN;
 
 // Create an authenticated Octokit client
 const octokit = github.getOctokit(token);
