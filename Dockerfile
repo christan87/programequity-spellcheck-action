@@ -9,6 +9,9 @@ RUN apt-get update
 # cspell is a spell checker for code
 RUN npm install -g cspell
 
+# Clear npm cache
+RUN npm cache clean --force
+
 # Install the @actions/github module
 RUN npm install @actions/github
 
