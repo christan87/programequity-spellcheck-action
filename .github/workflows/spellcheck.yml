@@ -19,13 +19,12 @@ jobs:
         with:
           node-version: '14.x'
       - name: Spellcheck
-        uses: christan87/programequity-spellcheck-action@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: christan87/programequity-spellcheck-action@main          
         # In case of errors, continue to the next step
         continue-on-error: true
         with:
           path: '.'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # This step builds the Docker image
       - name: Build Docker image
         run: docker build -t my-cspell-image .
