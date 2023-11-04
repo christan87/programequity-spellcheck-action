@@ -5,6 +5,9 @@ const core = require('@actions/core');
 
 // Get the GITHUB_TOKEN environment variable
 const token = process.env.GITHUB_TOKEN;
+const issueNumber = core.getInput('issue_number');
+const owner = core.getInput('owner');
+const repo = core.getInput('repo');
 
 // Create an authenticated Octokit client
 const octokit = github.getOctokit(token);
@@ -35,8 +38,9 @@ console.log("====================> context: ", context);
 // This is necessary because top-level await is not allowed in Node.js scripts
 (async () => {
     await octokit.issues.createComment({
-        ...context.repo,
-        issue_number: context.issue.number,
+        owner: owner,
+        repo: repo,
+        issue_number: issueNumber,
         body: commentBody,
     });
 })();
