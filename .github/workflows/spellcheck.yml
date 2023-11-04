@@ -37,7 +37,9 @@ jobs:
         continue-on-error: true
 
       - name: List files in working directory
-        run: ls -l
+        run: |
+          ls -l
+          cat spellcheck-results.txt
       # This step posts the spellcheck results as a comment on the pull request
       # The GitHub token is read from the secrets
       - name: Post spellcheck results
