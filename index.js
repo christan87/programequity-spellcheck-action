@@ -8,7 +8,7 @@ const token = process.env.GITHUB_TOKEN;
 
 // Create an authenticated Octokit client
 const octokit = github.getOctokit(token);
-console.log('===================>Octokit object:', token);
+console.log('===================>Octokit object:', octokit);
 
 // Read the spellcheck-results.txt file
 // This file contains the output of the cspell command
