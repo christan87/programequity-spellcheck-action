@@ -9,11 +9,8 @@ RUN apt-get update
 # cspell is a spell checker for code
 RUN npm install -g cspell
 
-# Clear npm cache
-RUN npm cache clean --force
-
-# Install the @actions/github module
-RUN npm install @actions/github
+# Copy the node_modules directory into the Docker image
+COPY node_modules ./node_modules
 
 # Copy the entrypoint.sh script into the Docker image
 COPY entrypoint.sh /entrypoint.sh
