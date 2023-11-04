@@ -30,7 +30,7 @@ const commentBody = `The following words are misspelled:\n\n${misspelledWords.jo
 
 const context = github.context;
 console.log("====================> context: ", context);
-console.log("====================> octokit: ", octokit.issues);
+console.log("====================> octokit: ", octokit);
 // The createComment function is called in an asynchronous self-invoking function
 // This is necessary because top-level await is not allowed in Node.js scripts
 (async () => {
