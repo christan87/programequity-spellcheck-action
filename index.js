@@ -7,8 +7,13 @@ const github = require('@actions/github');
 const data = fs.readFileSync('spellcheck-results.txt', 'utf8');
 
 // Extract the misspelled words from the file content
-// The regular expression matches any word that follows "Unknown word (suggestion): " and ends before a comma
-const misspelledWords = data.match(/(?<=Unknown word \(suggestion\): ).*?(?=,)/g);
+// The regular expression matches any word that follows "Unknown word (" and ends before ")"
+let misspelledWords = data.match(/(?<=Unknown word \().*?(?=\))/g);
+
+// If misspelledWords is null, set it to an empty array
+if (misspelledWords === null) {
+  misspelledWords = [];
+}
 
 console.log("===================>data: ", data);
 console.log("===================>misspelledWords: ", misspelledWords);
