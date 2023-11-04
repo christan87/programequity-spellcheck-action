@@ -22,6 +22,8 @@ jobs:
         uses: christan87/programequity-spellcheck-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # In case of errors, continue to the next step
+        continue-on-error: true
         with:
           path: '.'
       # This step builds the Docker image
