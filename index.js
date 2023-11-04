@@ -29,8 +29,7 @@ const commentBody = `The following words are misspelled:\n\n${misspelledWords.jo
 // Post the comment to the pull request
 
 const context = github.context;
-const prNumber = github.context.payload.pull_request.number;
-console.log("====================> prNumber: ", prNumber);
+console.log("====================> context: ", context);
 
 // The createComment function is called in an asynchronous self-invoking function
 // This is necessary because top-level await is not allowed in Node.js scripts
