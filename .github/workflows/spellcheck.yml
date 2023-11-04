@@ -35,6 +35,9 @@ jobs:
       - name: Run Docker container
         run: docker run -v ${{ github.workspace }}:/workdir -w /workdir my-cspell-image cspell "**/*"
         continue-on-error: true
+
+      - name: List files in working directory
+        run: ls -l
       # This step posts the spellcheck results as a comment on the pull request
       # The GitHub token is read from the secrets
       - name: Post spellcheck results
