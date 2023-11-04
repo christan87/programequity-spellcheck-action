@@ -27,9 +27,6 @@ jobs:
         with:
           path: '.'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          issue_number: ${{ github.event.pull_request.number }}
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.repository }}
       # This step builds the Docker image
       - name: Build Docker image
         run: docker build -t my-cspell-image .
