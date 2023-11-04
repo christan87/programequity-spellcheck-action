@@ -5,7 +5,7 @@ const core = require('@actions/core');
 
 // Get the GITHUB_TOKEN environment variable
 const token = process.env.GITHUB_TOKEN;
-
+console.log("====================> token: ", token);
 // Create an authenticated Octokit client
 const octokit = github.getOctokit(token);
 
