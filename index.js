@@ -5,9 +5,10 @@ const core = require('@actions/core');
 
 // Get the GITHUB_TOKEN environment variable
 const token = process.env.GITHUB_TOKEN;
-console.log('===================>GitHub token:', token);
+
 // Create an authenticated Octokit client
 const octokit = github.getOctokit(token);
+console.log('===================>Octokit object:', token);
 
 // Read the spellcheck-results.txt file
 // This file contains the output of the cspell command
