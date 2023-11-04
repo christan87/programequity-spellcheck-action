@@ -34,7 +34,7 @@ console.log("====================> octokit: ", octokit);
 // The createComment function is called in an asynchronous self-invoking function
 // This is necessary because top-level await is not allowed in Node.js scripts
 (async () => {
-    await octokit.issues.createComment({
+    await octokit.rest.issues.createComment({
         ...context.repo,
         issue_number: context.issue.number,
         body: commentBody,
