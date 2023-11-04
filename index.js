@@ -10,6 +10,8 @@ const data = fs.readFileSync('spellcheck-results.txt', 'utf8');
 // The regular expression matches any word that follows "Unknown word (suggestion): " and ends before a comma
 const misspelledWords = data.match(/(?<=Unknown word \(suggestion\): ).*?(?=,)/g);
 
+console.log("===================>data: ", data);
+console.log("===================>misspelledWords: ", misspelledWords);
 // Format the misspelled words as a comment body
 // Each misspelled word is on a new line
 const commentBody = `The following words are misspelled:\n\n${misspelledWords.join('\n')}`;
