@@ -44,7 +44,7 @@ jobs:
       # This step posts the spellcheck results as a comment on the pull request
       # The GitHub token is read from the secrets
       - name: Post spellcheck results
-        uses: actions/github-script@v4
+        uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -67,7 +67,6 @@ jobs:
 
             ${misspelledWords.join('\n')}`;
             console.log("====================> context: " , github.context);
-            console.log("====================> github: " , github);
             // Post the comment to the pull request
             await github.issues.createComment({
               owner: github.context.repo.owner,
