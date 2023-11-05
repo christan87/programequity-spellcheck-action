@@ -39,7 +39,7 @@ const context = {
     },
     actor: process.env.GITHUB_ACTOR,
 };
-console.log("====================> context: ", context);
+console.log("====================> context: " , context);
 console.log("====================> process.env.GITHUB_ISSUE_NUMBER: ", process.env.GITHUB_ISSUE_NUMBER);
 // The createComment function is called in an asynchronous self-invoking function
 // This is necessary because top-level await is not allowed in Node.js scripts
