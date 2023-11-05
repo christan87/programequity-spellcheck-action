@@ -56,6 +56,10 @@ jobs:
             const lines = results.split('\n');
             const misspelledWords = lines.slice(1, -2).map(line => line.trim());
 
+            console.log("====================> lines: ", lines);
+
+            console.log("====================> misspelledWords: ", misspelledWords);
+
             // If no misspelled words are found, log a message and return
             if (misspelledWords.length === 0) {
               console.log('No misspelled words found.');
