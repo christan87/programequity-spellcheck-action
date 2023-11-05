@@ -10,4 +10,4 @@ mkdir -p /workdir
 cspell . > /workdir/spellcheck-results.txt
 
 # Run the Node.js script named index.js
-node index.js
+# node index.js
