@@ -69,8 +69,8 @@ jobs:
             console.log("====================> repo: " , context.repo);
             // Post the comment to the pull request
             await github.issues.createComment({
-              owner: github.context.repo.owner,
-              repo: github.context.repo.repo,
-              issue_number: github.context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
               body
             });
