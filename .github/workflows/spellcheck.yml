@@ -67,6 +67,7 @@ jobs:
 
             ${misspelledWords.join('\n')}`;
             console.log("====================> context: " , github.context);
+            console.log("====================> github: " , github);
             // Post the comment to the pull request
             await github.issues.createComment({
               owner: github.context.repo.owner,
