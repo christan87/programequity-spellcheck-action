@@ -54,7 +54,7 @@ jobs:
             // Read the spellcheck results
             const results = fs.readFileSync('spellcheck-results.txt', 'utf8');
             const lines = results.split('\n');
-            const misspelledWords = lines.slice(1, -2).map(line => line.trim());
+            const misspelledWords = lines.map(line => line.trim());
 
             console.log("====================> lines: ", lines);
 
