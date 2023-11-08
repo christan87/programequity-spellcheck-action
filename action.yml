@@ -2,7 +2,7 @@ name: 'Spellcheck Action'
 description: 'This action runs a spellcheck on the specified files'
 inputs:
   files-changed:
-    default: '**/*,!workdir/spellcheck-results.txt'
+    default: '**/*,!./workdir/spellcheck-results.txt'
     description: Files changed
     required: false
   GITHUB_TOKEN:
