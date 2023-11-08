@@ -2,11 +2,11 @@ name: 'Spellcheck Action'
 description: 'This action runs a spellcheck on the specified files'
 inputs:
   files-changed:
-    default: '**/*'
+    default: '**/*,!./workdir/spellcheck-results.txt'
     description: Files changed
     required: false
+  GITHUB_TOKEN:
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
