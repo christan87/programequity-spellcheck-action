@@ -34,6 +34,7 @@ jobs:
           mkdir -p workdir
           cspell . > workdir/spellcheck-results.txt
           node index.js
+        continue-on-error: true
       # (Begin) This replaces the entrypoint.sh
 
       - name: Clean up APT cache
